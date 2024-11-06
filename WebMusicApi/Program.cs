@@ -1,5 +1,5 @@
 
-using DataAccess.Models;
+using Domain.Models;
 using System.Reflection;
 using DataAccess.Wrapper;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +17,7 @@ namespace WebMusicApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Register DbContext
-            builder.Services.AddDbContext<WebMusicAppContext>(
+            builder.Services.AddDbContext<Domain.Models.WebMusicAppContext>(
                 options => options.UseSqlServer(
                     "Server=LAPTOP-886FNGF4\\MSSQLSERVER02;Database=WebMusicApp;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"));
 

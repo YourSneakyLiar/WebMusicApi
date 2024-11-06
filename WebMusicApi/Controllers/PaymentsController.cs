@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DataAccess.Models;
+using Domain.Models;
 
 namespace WebMusicApp.Controllers
 {
