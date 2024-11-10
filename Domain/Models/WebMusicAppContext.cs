@@ -15,6 +15,18 @@ public partial class WebMusicAppContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(
+                "Server=LAPTOP-886FNGF4\\MSSQLSERVER02;Database=WebMusicApp;User Id=sa;Password=password_123;TrustServerCertificate=True;");
+               // b => b.MigrationsAssembly("DataAccess")); // Указываем сборку для миграций
+        }
+    }
+
+
+
     public virtual DbSet<Advertisement> Advertisements { get; set; }
 
     public virtual DbSet<Album> Albums { get; set; }
@@ -55,7 +67,6 @@ public partial class WebMusicAppContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
-   
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -18,16 +18,13 @@ namespace WebMusicApi
 
             // Register DbContext
             builder.Services.AddDbContext<Domain.Models.WebMusicAppContext>(
-                options => options.UseSqlServer(
-                    "Server=LAPTOP-886FNGF4\\MSSQLSERVER02;Database=WebMusicApp;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;"));
+                options => options.UseSqlServer(builder.Configuration["ConnectionString"]));
 
 
 
             // Register repositories
             builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             builder.Services.AddScoped<IUserService, UserService>();
-
-
 
 
 
@@ -38,18 +35,32 @@ namespace WebMusicApi
 
             var app = builder.Build();
 
+
+           using(var scope = app.Services.CreateScope())
+           {
+               var services = scope.ServiceProvider;
+
+               var context = services.GetRequiredService<WebMusicAppContext>();
+                context.Database.Migrate();
+
+           }
+
+
+
+
            // Configure the HTTP request pipeline.
-             if (app.Environment.IsDevelopment())
+            // if (app.Environment.IsDevelopment())
              {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+               app.UseSwagger();
+               app.UseSwaggerUI();
 
              }
 
-            app.UseHttpsRedirection();
-             app.UseAuthorization();
-             app.MapControllers();
-             app.Run();
+
+           // app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers();
+            app.Run();
         }
     }
 }
