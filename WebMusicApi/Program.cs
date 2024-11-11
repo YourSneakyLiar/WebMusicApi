@@ -57,6 +57,12 @@ namespace WebMusicApi
              }
 
 
+            app.UseCors(builder => builder.WithOrigins(new[] { "https://localhost:7233", })
+                                                    .AllowAnyHeader() 
+                                                    .AllowAnyMethod());
+
+            
+
            // app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();

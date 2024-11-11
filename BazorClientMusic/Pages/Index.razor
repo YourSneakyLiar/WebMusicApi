@@ -1,0 +1,61 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<p>Текущая дата: @CurrentDate </p>
+<p>Текущее время: @CurrentTime </p>
+
+@foreach (var user in result)
+{
+    <p>@user.Username @user.Role</p>
+}
+
+@code{
+
+    public class User
+    {
+        public int Id { get; set; }
+
+        public string Username { get; set; } 
+
+        public string Email { get; set; }
+
+        public string PasswordHash { get; set; } 
+
+        public string Role { get; set; } 
+
+        public DateTime? CreatedAt { get; set; }
+
+        public DateTime? UpdatedAt { get; set; }
+    }
+
+    public User[] result = new User[] { };
+
+
+
+
+
+    string CurrentDate;
+    string CurrentTime;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var date = DateTime.Now;
+        CurrentDate = date.ToShortDateString();
+        CurrentTime = date.ToShortTimeString();
+
+        var client = new HttpClient();
+        client.BaseAddress = new Uri("https://webmusicapi.onrender.com");
+
+        result = await client.GetFromJsonAsync<User[]>("api/Users");
+
+        return;
+
+    }
+}
+
+
+
+
+
