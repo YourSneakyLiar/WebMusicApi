@@ -57,9 +57,10 @@ namespace WebMusicApi
              }
 
 
-            app.UseCors(builder => builder.WithOrigins(new[] { "https://localhost:7233", })
+            app.UseCors(builder => builder.WithOrigins(new[] { "https://webmusicapi.onrender.com", })
                                                     .AllowAnyHeader() 
-                                                    .AllowAnyMethod());
+                                                    .AllowAnyMethod()
+                                                    .AllowAnyOrigin());
 
             
 
