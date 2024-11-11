@@ -9,7 +9,7 @@ services:
     environment:
       - ASPNETCORE_URLS=http://+:80
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionString=Server=db;Database=WebMusicApp;User Id=SA;Password=password_123;MultipleActiveResultSets=true;TrustServerCertificate=True;
+      - ConnectionString=Server=sql.bsite.net\MSSQL2016;Database=webmusicapp_;User Id=webmusicapp_;Password=password_123;TrustServerCertificate=true;
     ports:
       - "5000:80"
     depends_on:
