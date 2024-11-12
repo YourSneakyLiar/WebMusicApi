@@ -30,3 +30,109 @@ h1:focus {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+
+/* General Styling */
+body {
+    background-color: #1E90FF; /* Лазурный Крайола */
+    color: #333; /* Темно-серый цвет текста */
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #333; /* Темно-серый цвет навигационной шапки */
+    padding: 10px 0;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #FFF; /* Белый цвет текста в логотипе */
+}
+
+.navbar-nav .nav-link {
+    color: #FFF; /* Белый цвет текста в навигационных ссылках */
+    font-size: 18px;
+    margin: auto 10px;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #1E90FF; /* Лазурный Крайола при наведении */
+    }
+
+/* Search Form Styling */
+.form-control {
+    background-color: #444; /* Темно-серый цвет поля поиска */
+    color: #FFF; /* Белый цвет текста в поле поиска */
+    border: none;
+}
+
+.btn-outline-success {
+    background-color: #6A5ACD; /* Сине-серый Крайола */
+    color: #FFF; /* Белый цвет текста на кнопке поиска */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-outline-success:hover {
+        background-color: #483D8B; /* Темно-синий при наведении */
+    }
+
+/* Buttons Styling */
+.btn-outline-primary {
+    background-color: #6A5ACD; /* Сине-серый Крайола */
+    color: #FFF; /* Белый цвет текста на кнопках */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #483D8B; /* Темно-синий при наведении */
+    }
+
+/* Card Styling */
+.card {
+    background-color: #FFF; /* Белый цвет карточек */
+    color: #333; /* Темно-серый цвет текста в карточках */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section Styling */
+#hero {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+    #hero h5 {
+        text-transform: uppercase;
+        font-weight: 900;
+        color: #333; /* Темно-серый цвет заголовков */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #hero p {
+        font-size: 16px;
+        font-weight: 300;
+        color: #555; /* Серый цвет текста */
+    }
+
+/* List Group Styling */
+.list-group-item {
+    background-color: #444; /* Темно-серый цвет элементов списка */
+    color: #FFF; /* Белый цвет текста в элементах списка */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .list-group-item:hover {
+        background-color: #6A5ACD; /* Сине-серый Крайола при наведении */
+    }

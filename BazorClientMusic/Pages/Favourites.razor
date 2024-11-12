@@ -1,5 +1,4 @@
-﻿@page "/"
-@inject NavigationManager Navigation
+﻿@page "/favorites"
 
 <nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar navbar-light bg-light">
     <div class="container">
@@ -43,28 +42,14 @@
                 </div>
             </div>
 
-            <!-- Основная секция с жанрами и плашкой с текстом -->
+            <!-- Основная секция с плашкой с текстом -->
             <div class="col-md-9">
-                <!-- Кнопки с жанрами -->
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-start flex-wrap">
-                            <button class="btn btn-outline-primary rounded-pill m-2" @onclick="NavigateToPopLink">Pop</button>
-                            <button class="btn btn-outline-primary rounded-pill m-2" @onclick="NavigateToRockLink">Rock</button>
-                            <button class="btn btn-outline-primary rounded-pill m-2" @onclick="NavigateToHipHopLink">Hip-Hop</button>
-                            <button class="btn btn-outline-primary rounded-pill m-2" @onclick="NavigateToElectronicLink">Electronic</button>
-                            <button class="btn btn-outline-primary rounded-pill m-2" @onclick="NavigateToClassicalLink">Classical</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Плашка с текстом -->
                 <div class="row justify-content-center">
                     <div class="col-md-8 text-center">
                         <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">Добро пожаловать!</h5>
-                                <p class="card-text">Пока что тут ничего нет. Но в будущем обязательно появится!</p>
+                                <h5 class="card-title">Пока что у вас нет избранного.</h5>
+                                <p class="card-text">Простите за такой косяк!</p>
                             </div>
                         </div>
                     </div>
@@ -75,42 +60,18 @@
 </section>
 
 
+
+
+
+
+
+
 @foreach (var user in result)
 {
     <p>@user.Username @user.Role</p>
 }
 
 @code {
-
-    private void NavigateToPopLink()
-    {
-        
-        Navigation.NavigateTo("https://ibb.org.ru/images/2024/11/12/IZOBRAZENIE_2024-11-12_102116002.png");
-    }
-
-    private void NavigateToRockLink()
-    {
-        
-        Navigation.NavigateTo("https://ibb.org.ru/images/2024/11/12/IZOBRAZENIE_2024-11-12_102405632.png");
-    }
-
-    private void NavigateToHipHopLink()
-    {
-       
-        Navigation.NavigateTo("https://ibb.org.ru/images/2024/11/12/IZOBRAZENIE_2024-11-12_102741942.png");
-    }
-
-    private void NavigateToElectronicLink()
-    {
-        Navigation.NavigateTo("https://ibb.org.ru/images/2024/11/12/IZOBRAZENIE_2024-11-12_102834868.png");
-    }
-
-    private void NavigateToClassicalLink()
-    {
-       
-        Navigation.NavigateTo("https://ibb.org.ru/images/2024/11/12/IZOBRAZENIE_2024-11-12_102925010.png");
-    }
-
     public class User
     {
         public int Id { get; set; }

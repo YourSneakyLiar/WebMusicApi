@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{D06894DA-8B76-4504-9F2B-F7DEFBA3DFD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BazorClientMusic", "BazorClientMusic\BazorClientMusic.csproj", "{B1FC847E-9281-4AE1-81F2-10D43D0B6EFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BazorClientMusic", "BazorClientMusic\BazorClientMusic.csproj", "{B1FC847E-9281-4AE1-81F2-10D43D0B6EFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
