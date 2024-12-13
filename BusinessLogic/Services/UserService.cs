@@ -1,11 +1,14 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
     public class UserService : IUserService
     {
-        private IRepositoryWrapper _repositoryWrapper;
+        private readonly IRepositoryWrapper _repositoryWrapper;
 
         public UserService(IRepositoryWrapper repositoryWrapper)
         {
@@ -27,13 +30,13 @@ namespace BusinessLogic.Services
         public async Task Create(User model)
         {
             await _repositoryWrapper.User.Create(model);
-            _repositoryWrapper.Save();
+            await _repositoryWrapper.Save();
         }
 
         public async Task Update(User model)
         {
             _repositoryWrapper.User.Update(model);
-            _repositoryWrapper.Save();
+            await _repositoryWrapper.Save();
         }
 
         public async Task Delete(int id)
@@ -42,7 +45,13 @@ namespace BusinessLogic.Services
                 .FindByCondition(x => x.Id == id);
 
             _repositoryWrapper.User.Delete(user.First());
-            _repositoryWrapper.Save();
+            await _repositoryWrapper.Save();
+        }
+
+        public async Task<List<User>> GetByRole(string role)
+        {
+            return await _repositoryWrapper.User
+                .FindByCondition(x => x.Role == role);
         }
     }
 }
