@@ -10,11 +10,6 @@ namespace Domain.Interfaces
     public interface IRepositoryWrapper
     {
         IUserRepository User { get; }
-        IAlbumRepository Album { get; }
-        ITrackRepository Track { get; }
-        IPlaylistRepository Playlist { get; }
-        IGenreRepository Genre { get; }
-        ILikeRepository Like { get; } // Добавьте это свойство
 
         Task Save();
     }
